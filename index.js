@@ -30,3 +30,10 @@ app.post('/api/customers', (req, res) => {
   customers.push(customer);
   res.send(customer);
 });
+
+//お客様情報の更新
+app.put('/api/customers/:id', (req, res) => {
+  const customer = customers.find((c) => c.id === parseInt(req.params.id));
+  customer.name = req.body.name;
+  res.send(customer);
+});
